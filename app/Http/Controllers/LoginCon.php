@@ -21,9 +21,10 @@ $data = [
 'password' => $request->input('password'),
 ];
 if (Auth::Attempt($data)) {
-return redirect('dashboard');
-
-}else{
+    Session::flash('message', 'Welcome !!!');
+    return redirect('dashboard');
+}
+else{
 Session::flash('error', 'Email atau Password Salah');
 return redirect('/masuk');
 }
